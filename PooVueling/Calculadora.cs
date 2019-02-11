@@ -13,9 +13,18 @@ namespace PooVueling
             throw new NotImplementedException("The method is not implemented yet");
         }
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public int Division(int num1, int num2)
         {
-            return num2 == 0 ? 0 : num1 / num2;
+            try
+            {
+                return num1 / num2;
+            }
+            catch(DivideByZeroException e)
+            {
+                log.Error(e.Message);
+                throw;
+            }
         }
 
         public int Multiplicacion(int num1, int num2)
@@ -32,5 +41,6 @@ namespace PooVueling
         {
             return num1 + num2;
         }
+
     }
 }

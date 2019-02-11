@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace PooVueling.Tests
 {
@@ -9,9 +10,16 @@ namespace PooVueling.Tests
 
         [DataRow(4, 2, 2)]
         [DataRow(9, 3, 3)]
-        [DataRow(9, 0, 0)]
         [DataTestMethod()]
         public void DivisionTest(int num1, int num2, int resultado)
+        {
+            Assert.IsTrue(iCalculadora.Division(num1, num2) == resultado);
+        }
+
+        [DataRow(9, 0, 0)]
+        [DataTestMethod()]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void DivisionDivideByZeroExceptionTest(int num1, int num2, int resultado)
         {
             Assert.IsTrue(iCalculadora.Division(num1, num2) == resultado);
         }

@@ -24,7 +24,14 @@ namespace PooVueling.NunitV.Integration.Tests
         {
             Assert.IsTrue(iCalculadora.Division(num1, num2) == resultado);
         }
-        
+
+        [TestCase(9, 0)]
+        public void DivisioDivideByZeroExceptionTest(int num1, int num2)
+        {
+            Assert.That(() => iCalculadora.Division(num1, num2),
+                Throws.TypeOf<DivideByZeroException>());
+        }
+
         [TestCase(4, 2, 8)]
         [TestCase(6, 3, 18)]
         public void MultiplicacionTest(int num1, int num2, int resultado)
