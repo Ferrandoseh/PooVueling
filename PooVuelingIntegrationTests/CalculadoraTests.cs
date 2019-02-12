@@ -6,7 +6,7 @@ namespace PooVueling.Tests
     [TestClass()]
     public class CalculadoraTests
     {
-        ICalculadora iCalculadora = new Calculadora();
+        readonly ICalculadora iCalculadora = new Calculadora();
 
         [DataRow(4, 2, 2)]
         [DataRow(9, 3, 3)]

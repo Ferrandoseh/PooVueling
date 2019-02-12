@@ -32,7 +32,7 @@ namespace PooVueling.Tests
         [ExpectedException(typeof(DivideByZeroException))]
         public void DivisionDivisionByZeroExceptionTest()
         {
-            var result = mockObject.Division(2, 0);
+            mockObject.Division(2, 0);
         }
 
         [TestMethod()]
