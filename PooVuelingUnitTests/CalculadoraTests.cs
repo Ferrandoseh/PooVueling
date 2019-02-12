@@ -1,12 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using PooVueling;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PooVueling.Tests
 {
@@ -35,7 +29,7 @@ namespace PooVueling.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(System.DivideByZeroException))]
+        [ExpectedException(typeof(DivideByZeroException))]
         public void DivisionDivisionByZeroExceptionTest()
         {
             var result = mockObject.Division(2, 0);
