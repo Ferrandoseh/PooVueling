@@ -8,12 +8,18 @@ namespace PooVueling
 {
     public class Calculadora : ICalculadora, ICloneable
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
+            System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        /* Same as the code above - just for Calculadora class
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(
+            typeof(Calculadora));*/ 
+
         public object Clone()
         {
             throw new NotImplementedException("The method is not implemented yet");
         }
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public int Division(int num1, int num2)
         {
             try
