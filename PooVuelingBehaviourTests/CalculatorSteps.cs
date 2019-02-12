@@ -8,46 +8,45 @@ namespace PooVuelingBehaviourTests
     [Binding]
     public class CalculatorSteps
     {
-        ICalculadora iCalculadora = new Calculadora();
-        
-        private int result, num1, num2;
+        private readonly ICalculadora iCalculadora = new Calculadora();
+        private int result;
 
         [Given(@"I first have entered (.*) into the calculator")]
         public void GivenIFirstHaveEnteredIntoTheCalculator(int p0)
         {
-            num1 = p0;
+            iCalculadora.FirstNumber = p0;
         }
-        
+
         [Given(@"I have also entered (.*) into the calculator")]
         public void GivenIHaveAlsoEnteredIntoTheCalculator(int p0)
         {
-            num2 = p0;
+            iCalculadora.SecondNumber = p0;
         }
-        
+
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            result = iCalculadora.Suma(num1, num2);
+            result = iCalculadora.Suma(iCalculadora.FirstNumber, iCalculadora.SecondNumber);
         }
-        
+
         [When(@"I press substract")]
         public void WhenIPressSubstract()
         {
-            result = iCalculadora.Resta(num1, num2);
+            result = iCalculadora.Resta(iCalculadora.FirstNumber, iCalculadora.SecondNumber);
         }
-        
+
         [When(@"I press multiply")]
         public void WhenIPressMultiply()
         {
-            result = iCalculadora.Multiplicacion(num1, num2);
+            result = iCalculadora.Multiplicacion(iCalculadora.FirstNumber, iCalculadora.SecondNumber);
         }
-        
+
         [When(@"I press divide")]
         public void WhenIPressDivide()
         {
-            result = iCalculadora.Division(num1, num2);
+            result = iCalculadora.Division(iCalculadora.FirstNumber, iCalculadora.SecondNumber);
         }
-        
+
         [Then(@"the result should be (.*) on the screen")]
         public void ThenTheResultShouldBeOnTheScreen(int p0)
         {
